@@ -1,10 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AuthActions } from './auth/store/auth.actions';
+import { SignalRService } from './common/real-time/signalr.service';
+import { LayoutComponent } from './shell/layout/layout.component';
 
 @Component({
-  selector: 'ps-doggo-rating-root',
+  selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  standalone: true,
+  styleUrls: ['./app.component.css'],
+  imports: [LayoutComponent],
 })
-export class AppComponent {
-  title = 'doggo-rating-app';
+export class AppComponent implements OnInit {
+  title = 'ratemydoggo';
+
+  constructor(private store: Store, private signalRService: SignalRService) {}
+
+  ngOnInit(): void {
+    this.checkAuth(null);
+
+    this.signalRService.start();
+  }
+
+  private checkAuth(url: string) {
+    this.store.dispatch(
+      AuthActions.checkAuth({
+        url,
+      })
+    );
+  }
 }
