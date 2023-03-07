@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ps-doggo-rating/features/about": ["libs/features/about/src/index.ts"]
+      "@ps-doggo-rating/about/feature": ["libs/about/feature/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -9,7 +9,7 @@ export const APP_ROUTES: Routes = [
   {
     path: 'about',
     loadChildren: () =>
-      import('@ps-doggo-rating/features/about').then((m) => m.ABOUT_ROUTES),
+      import('@ps-doggo-rating/about/feature').then((m) => m.ABOUT_ROUTES),
   },
   {
     path: 'callback',
