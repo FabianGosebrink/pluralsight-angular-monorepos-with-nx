@@ -19,7 +19,10 @@
           "apps/doggo-rating-app/src/favicon.ico",
           "apps/doggo-rating-app/src/assets"
         ],
-        "styles": ["apps/doggo-rating-app/src/styles.scss"],
+        "styles": [
+          "apps/doggo-rating-app/src/styles.scss",
+          "node_modules/ngx-toastr/toastr.css"
+        ],
         "scripts": []
       },
       "configurations": {
