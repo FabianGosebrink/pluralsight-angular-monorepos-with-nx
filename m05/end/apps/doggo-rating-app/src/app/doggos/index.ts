@@ -8,7 +8,7 @@ import { MyDoggosComponent } from './container/my-doggos/my-doggos.component';
 import { DoggosEffects } from './store/doggos.effects';
 import { doggosReducer } from './store/doggos.reducer';
 import { featureName } from './store/doggos.state';
-import { AuthGuard } from '@ps-doggo-rating/auth/util';
+import { isAuthenticated } from '@ps-doggo-rating/auth/util';
 
 export const DOGGOS_ROUTES: Routes = [
   {
@@ -26,11 +26,11 @@ export const DOGGOS_ROUTES: Routes = [
   {
     path: 'my',
     component: MyDoggosComponent,
-    canActivate: [AuthGuard],
+    canActivate: [isAuthenticated],
   },
   {
     path: 'my/add',
     component: AddDoggoComponent,
-    canActivate: [AuthGuard],
+    canActivate: [isAuthenticated],
   },
 ];
