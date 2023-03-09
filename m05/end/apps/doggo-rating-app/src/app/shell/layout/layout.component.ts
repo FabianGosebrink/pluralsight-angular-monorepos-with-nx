@@ -2,12 +2,11 @@ import { AsyncPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { select, Store } from '@ngrx/store';
+import { AuthActions, selectIsLoggedIn } from '@ps-doggo-rating/auth/state';
 import { Observable } from 'rxjs';
 import { getMyDoggosCount } from '../../doggos/store/doggos.selectors';
 import { FooterComponent } from '../footer/footer.component';
 import { NavigationComponent } from '../navigation/navigation.component';
-import { AuthActions } from './../../auth/store/auth.actions';
-import { selectIsLoggedIn } from './../../auth/store/auth.selectors';
 
 @Component({
   selector: 'app-layout',

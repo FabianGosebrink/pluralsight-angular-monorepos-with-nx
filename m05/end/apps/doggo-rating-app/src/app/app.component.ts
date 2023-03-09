@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AuthActions } from './auth/store/auth.actions';
+import { AuthActions } from '@ps-doggo-rating/auth/state';
 import { SignalRService } from './common/real-time/signalr.service';
 import { LayoutComponent } from './shell/layout/layout.component';
 

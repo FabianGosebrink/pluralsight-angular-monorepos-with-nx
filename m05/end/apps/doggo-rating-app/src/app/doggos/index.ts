@@ -2,13 +2,13 @@ import { importProvidersFrom } from '@angular/core';
 import { Routes } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { AuthGuard } from '../auth/auth.guard';
 import { AddDoggoComponent } from './container/add-doggo/add-doggo.component';
 import { MainDoggoComponent } from './container/main-doggo/main-doggo.component';
 import { MyDoggosComponent } from './container/my-doggos/my-doggos.component';
 import { DoggosEffects } from './store/doggos.effects';
 import { doggosReducer } from './store/doggos.reducer';
 import { featureName } from './store/doggos.state';
+import { AuthGuard } from '@ps-doggo-rating/auth/util';
 
 export const DOGGOS_ROUTES: Routes = [
   {

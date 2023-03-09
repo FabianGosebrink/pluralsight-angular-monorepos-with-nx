@@ -15,7 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ps-doggo-rating/about/feature": ["libs/about/feature/src/index.ts"]
+      "@ps-doggo-rating/about/feature": ["libs/about/feature/src/index.ts"],
+      "@ps-doggo-rating/auth/api": ["libs/auth/api/src/index.ts"],
+      "@ps-doggo-rating/auth/state": ["libs/auth/state/src/index.ts"],
+      "@ps-doggo-rating/auth/util": ["libs/auth/util/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

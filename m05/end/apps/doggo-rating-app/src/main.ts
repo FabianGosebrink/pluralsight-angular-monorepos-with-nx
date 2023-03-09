@@ -16,9 +16,8 @@ import {
 import { ToastrModule } from 'ngx-toastr';
 import { APP_ROUTES } from './app/app-routes';
 import { AppComponent } from './app/app.component';
-import { AuthEffects } from './app/auth/store/auth.effects';
-import { authReducer } from './app/auth/store/auth.reducer';
 import { environment } from './environments/environment';
+import { authReducer, AuthEffects } from '@ps-doggo-rating/auth/state';
 
 const webCallbackUrl = `${window.location.origin}/callback`;
 

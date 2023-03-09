@@ -1,9 +1,9 @@
 import { AsyncPipe, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
+import { selectCurrentUserIdentifier } from '@ps-doggo-rating/auth/state';
 import { Observable } from 'rxjs';
 import { environment } from './../../../environments/environment';
-import { selectCurrentUserIdentifier } from './../../auth/store/auth.selectors';
 import { getRealTimeConnection } from './../../doggos/store/doggos.selectors';
 
 @Component({

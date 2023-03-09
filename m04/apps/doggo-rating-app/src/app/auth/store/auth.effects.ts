@@ -43,10 +43,8 @@ export class AuthEffects {
     this.actions$.pipe(
       ofType(AuthActions.logout),
       concatMap(() => from(this.router.navigate(['/doggos']))),
-      map(() => {
-        this.authService.logout();
-        return AuthActions.logoutComplete();
-      })
+      concatMap(() => this.authService.logout()),
+      map(() => AuthActions.logoutComplete())
     )
   );
 }

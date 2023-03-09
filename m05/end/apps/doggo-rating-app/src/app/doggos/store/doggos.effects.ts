@@ -1,4 +1,3 @@
-import { AuthActions } from './../../auth/store/auth.actions';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
@@ -8,9 +7,10 @@ import { NotificationService } from '../../common/notifications/notification.ser
 import { selectQueryParams } from '../../router.selectors';
 import { DoggosService } from '../services/doggos.service';
 import {
+  AuthActions,
   selectIsLoggedIn,
   selectUserSubject,
-} from './../../auth/store/auth.selectors';
+} from '@ps-doggo-rating/auth/state';
 import { UploadService } from './../services/upload.service';
 import { DoggosActions } from './doggos.actions';
 import {
