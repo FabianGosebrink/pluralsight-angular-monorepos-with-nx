@@ -18,6 +18,7 @@
       "@ps-doggo-rating/about/feature": ["libs/about/feature/src/index.ts"],
       "@ps-doggo-rating/auth/api": ["libs/auth/api/src/index.ts"],
       "@ps-doggo-rating/auth/state": ["libs/auth/state/src/index.ts"],
+      "@ps-doggo-rating/auth/ui": ["libs/auth/ui/src/index.ts"],
       "@ps-doggo-rating/auth/util": ["libs/auth/util/src/index.ts"],
       "@ps-doggo-rating/shared/ui-common": [
         "libs/shared/ui-common/src/index.ts"

@@ -1,1 +1,1 @@
-export * from './lib/shared-ui-common.module';
+export * from './lib/navigation/navigation.component';

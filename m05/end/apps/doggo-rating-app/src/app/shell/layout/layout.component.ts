@@ -3,10 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { AuthActions, selectIsLoggedIn } from '@ps-doggo-rating/auth/state';
+import { NavigationComponent } from '@ps-doggo-rating/shared/ui-common';
 import { Observable } from 'rxjs';
 import { getMyDoggosCount } from '../../doggos/store/doggos.selectors';
 import { FooterComponent } from '../footer/footer.component';
-import { NavigationComponent } from '../navigation/navigation.component';
 
 @Component({
   selector: 'app-layout',
