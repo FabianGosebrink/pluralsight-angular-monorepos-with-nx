@@ -1,7 +1,5 @@
 import { inject } from '@angular/core';
-import {
-  Router,
-} from '@angular/router';
+import { Router } from '@angular/router';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
 import { map, take } from 'rxjs/operators';
 

@@ -1,8 +1,8 @@
-import { HttpService } from '../../common/http/http.service';
-import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
+import { HttpService } from '@ps-doggo-rating/shared/util-common';
 import { map, Observable } from 'rxjs';
 import { Doggo } from '../models/doggo';
+import { environment } from './../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',

@@ -2,15 +2,15 @@ import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 import { select, Store } from '@ngrx/store';
-import { catchError, concatMap, EMPTY, map, of, switchMap, tap } from 'rxjs';
-import { NotificationService } from '../../common/notifications/notification.service';
-import { selectQueryParams } from '../../router.selectors';
-import { DoggosService } from '../services/doggos.service';
 import {
   AuthActions,
   selectIsLoggedIn,
   selectUserSubject,
 } from '@ps-doggo-rating/auth/state';
+import { NotificationService } from '@ps-doggo-rating/shared/util-common';
+import { catchError, concatMap, EMPTY, map, of, tap } from 'rxjs';
+import { selectQueryParams } from '../../router.selectors';
+import { DoggosService } from '../services/doggos.service';
 import { UploadService } from './../services/upload.service';
 import { DoggosActions } from './doggos.actions';
 import {
