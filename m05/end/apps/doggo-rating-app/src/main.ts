@@ -7,7 +7,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { AuthEffects, authReducer } from '@ps-doggo-rating/auth/state';
+import { AuthEffects, authReducer } from '@ps-doggo-rating/shared/auth';
 import { environment } from '@ps-doggo-rating/shared/environments';
 import { AuthInterceptor, AuthModule } from 'angular-auth-oidc-client';
 import { ToastrModule } from 'ngx-toastr';

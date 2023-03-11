@@ -6,7 +6,7 @@ import {
   AuthActions,
   selectCurrentUserIdentifier,
   selectIsLoggedIn,
-} from '@ps-doggo-rating/auth/state';
+} from '@ps-doggo-rating/shared/auth';
 import { environment } from '@ps-doggo-rating/shared/environments';
 import {
   FooterComponent,

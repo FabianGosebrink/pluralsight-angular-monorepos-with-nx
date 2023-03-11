@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AuthActions } from '@ps-doggo-rating/auth/state';
+import { AuthActions } from '@ps-doggo-rating/shared/auth';
 import { LayoutComponent } from './layout/layout.component';
 
 @Component({

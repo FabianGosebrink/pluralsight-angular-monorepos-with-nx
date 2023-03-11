@@ -1,9 +1,9 @@
-import { LoginResponse } from 'angular-auth-oidc-client';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { tap, concatMap, map, from } from 'rxjs';
-import { AuthService } from '@ps-doggo-rating/auth/api';
+import { LoginResponse } from 'angular-auth-oidc-client';
+import { concatMap, from, map, tap } from 'rxjs';
+import { AuthService } from '../auth.service';
 import { AuthActions } from './auth.actions';
 
 @Injectable()
