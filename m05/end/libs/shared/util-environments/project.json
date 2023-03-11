@@ -1,15 +1,15 @@
 {
-  "name": "shared-environments",
+  "name": "shared-util-environments",
   "$schema": "../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "libs/shared/environments/src",
+  "sourceRoot": "libs/shared/util-environments/src",
   "prefix": "ps-doggo-rating",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "libs/shared/environments/jest.config.ts",
+        "jestConfig": "libs/shared/util-environments/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -24,8 +24,8 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "libs/shared/environments/**/*.ts",
-          "libs/shared/environments/**/*.html"
+          "libs/shared/util-environments/**/*.ts",
+          "libs/shared/util-environments/**/*.html"
         ]
       }
     }

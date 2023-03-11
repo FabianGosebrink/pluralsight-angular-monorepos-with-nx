@@ -6,7 +6,7 @@ import {
   LogLevel,
 } from '@microsoft/signalr';
 import { Store } from '@ngrx/store';
-import { environment } from '@ps-doggo-rating/shared/environments';
+import { environment } from '@ps-doggo-rating/shared/util-environments';
 import { DoggosActions } from '../state/doggos.actions';
 
 @Injectable({ providedIn: 'root' })

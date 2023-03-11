@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { environment } from '@ps-doggo-rating/shared/environments';
+import { environment } from '@ps-doggo-rating/shared/util-environments';
 import { HttpService } from '@ps-doggo-rating/shared/util-common';
 import { map, Observable } from 'rxjs';
 import { Doggo } from '../models/doggo';

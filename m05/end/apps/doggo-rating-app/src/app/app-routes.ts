@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { CallbackComponent } from '@ps-doggo-rating/shared/auth';
+import { CallbackComponent } from '@ps-doggo-rating/shared/util-auth';
 
 export const APP_ROUTES: Routes = [
   {

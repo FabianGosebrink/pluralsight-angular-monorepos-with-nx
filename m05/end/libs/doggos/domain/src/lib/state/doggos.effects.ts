@@ -6,7 +6,7 @@ import {
   AuthActions,
   selectIsLoggedIn,
   selectUserSubject,
-} from '@ps-doggo-rating/shared/auth';
+} from '@ps-doggo-rating/shared/util-auth';
 import {
   NotificationService,
   selectQueryParams,

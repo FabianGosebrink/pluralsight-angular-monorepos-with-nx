@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '@ps-doggo-rating/shared/environments';
+import { environment } from '@ps-doggo-rating/shared/util-environments';
 
 @Injectable({ providedIn: 'root' })
 export class UploadService {
