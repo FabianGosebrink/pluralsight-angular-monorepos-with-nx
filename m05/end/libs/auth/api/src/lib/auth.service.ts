@@ -5,7 +5,7 @@ import { OidcSecurityService } from 'angular-auth-oidc-client';
   providedIn: 'root',
 })
 export class AuthService {
-  private modal: Window;
+  private modal: Window | null = null;
 
   constructor(private oidcSecurityService: OidcSecurityService) {}
 

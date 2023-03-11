@@ -7,10 +7,6 @@ import {
   selectCurrentUserIdentifier,
   selectIsLoggedIn,
 } from '@ps-doggo-rating/auth/state';
-import {
-  getMyDoggosCount,
-  getRealTimeConnection,
-} from '@ps-doggo-rating/doggos/state';
 import { environment } from '@ps-doggo-rating/shared/environments';
 import {
   FooterComponent,
@@ -37,9 +33,9 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoggedIn$ = this.store.pipe(select(selectIsLoggedIn));
-    this.myDoggoCount$ = this.store.pipe(select(getMyDoggosCount));
+    //this.myDoggoCount$ = this.store.pipe(select(getMyDoggosCount));
     this.userEmail$ = this.store.pipe(select(selectCurrentUserIdentifier));
-    this.realTimeConnection$ = this.store.pipe(select(getRealTimeConnection));
+    //this.realTimeConnection$ = this.store.pipe(select(getRealTimeConnection));
   }
 
   login() {
