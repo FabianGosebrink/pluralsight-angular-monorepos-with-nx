@@ -7,4 +7,7 @@
 
 <router-outlet></router-outlet>
 
-<app-footer></app-footer>
+<app-footer
+  [userEmail]="userEmail$ | async"
+  [realTimeConnection]="realTimeConnection$ | async"
+></app-footer>

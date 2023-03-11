@@ -1,10 +1,6 @@
 import { AsyncPipe, NgIf } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { select, Store } from '@ngrx/store';
-import { selectCurrentUserIdentifier } from '@ps-doggo-rating/auth/state';
-import { Observable } from 'rxjs';
+import { Component, Input } from '@angular/core';
 import { environment } from './../../../environments/environment';
-import { getRealTimeConnection } from './../../doggos/store/doggos.selectors';
 
 @Component({
   selector: 'app-footer',
@@ -13,17 +9,9 @@ import { getRealTimeConnection } from './../../doggos/store/doggos.selectors';
   styleUrls: ['./footer.component.css'],
   imports: [AsyncPipe, NgIf],
 })
-export class FooterComponent implements OnInit {
-  userEmail$: Observable<string>;
+export class FooterComponent {
+  @Input() userEmail: string;
+  @Input() realTimeConnection: string;
 
   backendUrl = environment.server;
-
-  realTimeConnection$: Observable<string>;
-
-  constructor(private store: Store) {}
-
-  ngOnInit(): void {
-    this.userEmail$ = this.store.pipe(select(selectCurrentUserIdentifier));
-    this.realTimeConnection$ = this.store.pipe(select(getRealTimeConnection));
-  }
 }
