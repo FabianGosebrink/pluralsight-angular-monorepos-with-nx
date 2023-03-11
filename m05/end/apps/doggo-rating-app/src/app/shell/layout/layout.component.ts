@@ -7,13 +7,16 @@ import {
   selectCurrentUserIdentifier,
   selectIsLoggedIn,
 } from '@ps-doggo-rating/auth/state';
-import { NavigationComponent } from '@ps-doggo-rating/shared/ui-common';
+import {
+  FooterComponent,
+  NavigationComponent,
+} from '@ps-doggo-rating/shared/ui-common';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 import {
   getMyDoggosCount,
   getRealTimeConnection,
 } from '../../doggos/store/doggos.selectors';
-import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-layout',
@@ -27,6 +30,8 @@ export class LayoutComponent implements OnInit {
   myDoggoCount$: Observable<number>;
   userEmail$: Observable<string>;
   realTimeConnection$: Observable<string>;
+
+  backendUrl = environment.server;
 
   constructor(private store: Store) {}
 

@@ -1,6 +1,5 @@
 import { AsyncPipe, NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { environment } from './../../../environments/environment';
 
 @Component({
   selector: 'app-footer',
@@ -10,8 +9,7 @@ import { environment } from './../../../environments/environment';
   imports: [AsyncPipe, NgIf],
 })
 export class FooterComponent {
-  @Input() userEmail: string;
-  @Input() realTimeConnection: string;
-
-  backendUrl = environment.server;
+  @Input() userEmail = '';
+  @Input() realTimeConnection = '';
+  @Input() backendUrl = '';
 }
