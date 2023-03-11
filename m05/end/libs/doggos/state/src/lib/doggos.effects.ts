@@ -7,7 +7,7 @@ import {
   selectIsLoggedIn,
   selectUserSubject,
 } from '@ps-doggo-rating/auth/state';
-import { DoggosService, UploadService } from '@ps-doggo-rating/doggos/api';
+import { DoggosService, UploadService } from '@ps-doggo-rating/doggos/domain';
 import {
   NotificationService,
   selectQueryParams,
