@@ -7,12 +7,14 @@ import {
   selectIsLoggedIn,
   selectUserSubject,
 } from '@ps-doggo-rating/auth/state';
-import { DoggosService, UploadService } from '@ps-doggo-rating/doggos/domain';
 import {
   NotificationService,
   selectQueryParams,
 } from '@ps-doggo-rating/shared/util-common';
 import { catchError, concatMap, EMPTY, map, of, tap } from 'rxjs';
+import { DoggosService } from '../services/doggos.service';
+import { SignalRService } from '../services/signalr.service';
+import { UploadService } from '../services/upload.service';
 import { DoggosActions } from './doggos.actions';
 import {
   getAllDoggos,
@@ -162,6 +164,41 @@ export class DoggosEffects {
     )
   );
 
+  setRealTimeConnection$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(DoggosActions.setRealTimeConnection),
+        tap(({ connection }) => {
+          this.notificationService.showSuccess(
+            `Realtime Connection ${connection}`
+          );
+        })
+      ),
+    { dispatch: false }
+  );
+
+  startRealTimeConnection$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(DoggosActions.startRealTimeConnection),
+        tap(() => {
+          return this.signalRService.start();
+        })
+      ),
+    { dispatch: false }
+  );
+
+  stopRealTimeConnection$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(DoggosActions.stopRealTimeConnection),
+        tap(() => {
+          return this.signalRService.stop();
+        })
+      ),
+    { dispatch: false }
+  );
+
   rateDoggoRealtimeFinished$ = createEffect(() =>
     this.actions$.pipe(
       ofType(DoggosActions.rateDoggoRealtimeFinished),
@@ -214,6 +251,7 @@ export class DoggosEffects {
     private activatedRoute: ActivatedRoute,
     private doggosService: DoggosService,
     private uploadService: UploadService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private signalRService: SignalRService
   ) {}
 }

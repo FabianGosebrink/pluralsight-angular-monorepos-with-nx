@@ -1,5 +1,5 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
-import { Doggo } from '@ps-doggo-rating/doggos/domain';
+import { Doggo } from '../models/doggo';
 
 export const DoggosActions = createActionGroup({
   source: 'Doggos',
@@ -36,5 +36,7 @@ export const DoggosActions = createActionGroup({
     'Delete Doggo Realtime Finished': props<{ id: string }>(),
 
     'Set Real Time Connection': props<{ connection: string }>(),
+    'Start Real Time Connection': emptyProps(),
+    'Stop Real Time Connection': emptyProps(),
   },
 });

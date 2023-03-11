@@ -1,13 +1,14 @@
 import { AsyncPipe, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { Doggo } from '@ps-doggo-rating/doggos/domain';
 import {
+  Doggo,
+  SignalRService,
   DoggosActions,
   getAllDoggosButSelected,
   getLoading,
   getSelectedDoggo,
-} from '@ps-doggo-rating/doggos/state';
+} from '@ps-doggo-rating/doggos/domain';
 import {
   DoggoListComponent,
   DoggoRateComponent,
@@ -34,6 +35,7 @@ export class MainDoggoComponent implements OnInit {
     this.loading$ = this.store.pipe(select(getLoading));
 
     this.store.dispatch(DoggosActions.loadDoggos());
+    this.store.dispatch(DoggosActions.startRealTimeConnection());
   }
 
   rateDoggo(rating: number) {

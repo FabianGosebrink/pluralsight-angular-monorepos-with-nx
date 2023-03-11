@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AuthActions } from '@ps-doggo-rating/auth/state';
-import { SignalRService } from '@ps-doggo-rating/doggos/domain';
 import { LayoutComponent } from './layout/layout.component';
 
 @Component({
@@ -14,12 +13,10 @@ import { LayoutComponent } from './layout/layout.component';
 export class AppComponent implements OnInit {
   title = 'ratemydoggo';
 
-  constructor(private store: Store, private signalRService: SignalRService) {}
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
     this.checkAuth(null);
-
-    this.signalRService.start();
   }
 
   private checkAuth(url: string) {

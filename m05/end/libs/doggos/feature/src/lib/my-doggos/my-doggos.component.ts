@@ -2,8 +2,11 @@ import { AsyncPipe, DatePipe, DecimalPipe, NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { select, Store } from '@ngrx/store';
-import { Doggo } from '@ps-doggo-rating/doggos/domain';
-import { DoggosActions, getMyDoggos } from '@ps-doggo-rating/doggos/state';
+import {
+  Doggo,
+  DoggosActions,
+  getMyDoggos,
+} from '@ps-doggo-rating/doggos/domain';
 import { Observable } from 'rxjs';
 
 @Component({

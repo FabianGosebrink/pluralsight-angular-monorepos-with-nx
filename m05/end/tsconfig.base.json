@@ -22,7 +22,6 @@
       "@ps-doggo-rating/auth/util": ["libs/auth/util/src/index.ts"],
       "@ps-doggo-rating/doggos/domain": ["libs/doggos/domain/src/index.ts"],
       "@ps-doggo-rating/doggos/feature": ["libs/doggos/feature/src/index.ts"],
-      "@ps-doggo-rating/doggos/state": ["libs/doggos/state/src/index.ts"],
       "@ps-doggo-rating/doggos/ui": ["libs/doggos/ui/src/index.ts"],
       "@ps-doggo-rating/shared/environments": [
         "libs/shared/environments/src/index.ts"

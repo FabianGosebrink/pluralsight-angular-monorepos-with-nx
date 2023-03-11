@@ -6,12 +6,12 @@ import {
   LogLevel,
 } from '@microsoft/signalr';
 import { Store } from '@ngrx/store';
-import { DoggosActions } from '@ps-doggo-rating/doggos/state';
 import { environment } from '@ps-doggo-rating/shared/environments';
+import { DoggosActions } from '../state/doggos.actions';
 
 @Injectable({ providedIn: 'root' })
 export class SignalRService {
-  private connection: HubConnection;
+  private connection: HubConnection | null = null;
 
   constructor(private store: Store) {}
 
@@ -49,19 +49,19 @@ export class SignalRService {
   }
 
   private registerOnConnectionEvents() {
-    this.connection.onreconnecting(() =>
+    this.connection?.onreconnecting(() =>
       this.store.dispatch(
         DoggosActions.setRealTimeConnection({ connection: 'Reconnecting' })
       )
     );
 
-    this.connection.onreconnected(() =>
+    this.connection?.onreconnected(() =>
       this.store.dispatch(
         DoggosActions.setRealTimeConnection({ connection: 'On' })
       )
     );
 
-    this.connection.onclose(() =>
+    this.connection?.onclose(() =>
       this.store.dispatch(
         DoggosActions.setRealTimeConnection({ connection: 'Off' })
       )
@@ -69,15 +69,15 @@ export class SignalRService {
   }
 
   private registerOnServerEvents() {
-    this.connection.on('doggoadded', (doggo) => {
+    this.connection?.on('doggoadded', (doggo) => {
       this.store.dispatch(DoggosActions.addDoggoRealtimeFinished({ doggo }));
     });
 
-    this.connection.on('doggodeleted', (id) => {
+    this.connection?.on('doggodeleted', (id) => {
       this.store.dispatch(DoggosActions.deleteDoggoRealtimeFinished({ id }));
     });
 
-    this.connection.on('doggorated', (doggo) => {
+    this.connection?.on('doggorated', (doggo) => {
       this.store.dispatch(DoggosActions.rateDoggoRealtimeFinished({ doggo }));
     });
   }

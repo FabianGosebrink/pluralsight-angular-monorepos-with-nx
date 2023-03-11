@@ -3,12 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { select, Store } from '@ngrx/store';
-import { Doggo } from '@ps-doggo-rating/doggos/domain';
 import {
+  Doggo,
   DoggosActions,
   getLastAddedDoggo,
   getLoading,
-} from '@ps-doggo-rating/doggos/state';
+} from '@ps-doggo-rating/doggos/domain';
 import { Observable } from 'rxjs';
 
 @Component({

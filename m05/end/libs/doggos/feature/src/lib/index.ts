@@ -7,7 +7,7 @@ import {
   DoggosEffects,
   doggosReducer,
   featureName,
-} from '@ps-doggo-rating/doggos/state';
+} from '@ps-doggo-rating/doggos/domain';
 import { AddDoggoComponent } from './add-doggo/add-doggo.component';
 import { MainDoggoComponent } from './main-doggo/main-doggo.component';
 import { MyDoggosComponent } from './my-doggos/my-doggos.component';
