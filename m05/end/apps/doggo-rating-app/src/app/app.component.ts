@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AuthActions } from '@ps-doggo-rating/auth/state';
-import { SignalRService } from './doggos/services/signalr.service';
+import { SignalRService } from '@ps-doggo-rating/doggos/api';
 import { LayoutComponent } from './shell/layout/layout.component';
 
 @Component({

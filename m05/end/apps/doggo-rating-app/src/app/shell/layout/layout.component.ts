@@ -8,15 +8,15 @@ import {
   selectIsLoggedIn,
 } from '@ps-doggo-rating/auth/state';
 import {
+  getMyDoggosCount,
+  getRealTimeConnection,
+} from '@ps-doggo-rating/doggos/state';
+import { environment } from '@ps-doggo-rating/shared/environments';
+import {
   FooterComponent,
   NavigationComponent,
 } from '@ps-doggo-rating/shared/ui-common';
 import { Observable } from 'rxjs';
-import { environment } from '../../../environments/environment';
-import {
-  getMyDoggosCount,
-  getRealTimeConnection,
-} from '../../doggos/store/doggos.selectors';
 
 @Component({
   selector: 'app-layout',

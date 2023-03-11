@@ -4,7 +4,8 @@ import { CallbackComponent } from '@ps-doggo-rating/auth/ui';
 export const APP_ROUTES: Routes = [
   {
     path: 'doggos',
-    loadChildren: () => import('./doggos').then((m) => m.DOGGOS_ROUTES),
+    loadChildren: () =>
+      import('@ps-doggo-rating/doggos/feature').then((m) => m.DOGGOS_ROUTES),
   },
   {
     path: 'about',

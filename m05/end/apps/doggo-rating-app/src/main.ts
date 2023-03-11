@@ -7,17 +7,12 @@ import { EffectsModule } from '@ngrx/effects';
 import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import {
-  AuthInterceptor,
-  AuthModule,
-  StsConfigLoader,
-  StsConfigStaticLoader,
-} from 'angular-auth-oidc-client';
+import { AuthEffects, authReducer } from '@ps-doggo-rating/auth/state';
+import { environment } from '@ps-doggo-rating/shared/environments';
+import { AuthInterceptor, AuthModule } from 'angular-auth-oidc-client';
 import { ToastrModule } from 'ngx-toastr';
 import { APP_ROUTES } from './app/app-routes';
 import { AppComponent } from './app/app.component';
-import { environment } from './environments/environment';
-import { authReducer, AuthEffects } from '@ps-doggo-rating/auth/state';
 
 const webCallbackUrl = `${window.location.origin}/callback`;
 
