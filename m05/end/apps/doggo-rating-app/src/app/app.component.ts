@@ -16,14 +16,10 @@ export class AppComponent implements OnInit {
   constructor(private store: Store) {}
 
   ngOnInit(): void {
-    this.checkAuth(null);
+    this.checkAuth();
   }
 
-  private checkAuth(url: string) {
-    this.store.dispatch(
-      AuthActions.checkAuth({
-        url,
-      })
-    );
+  private checkAuth() {
+    this.store.dispatch(AuthActions.checkAuth());
   }
 }

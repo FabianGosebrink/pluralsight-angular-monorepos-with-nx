@@ -47,7 +47,7 @@ bootstrapApplication(AppComponent, {
           responseType: 'code',
           silentRenew: true,
           useRefreshToken: true,
-          postLogoutRedirectUri: webCallbackUrl,
+          postLogoutRedirectUri: window.location.origin,
           customParamsAuthRequest: {
             audience: environment.server,
           },

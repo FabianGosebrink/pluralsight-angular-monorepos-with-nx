@@ -5,7 +5,7 @@ export const AuthActions = createActionGroup({
   events: {
     Login: emptyProps(),
     'Login Complete': props<{ profile: any; isLoggedIn: boolean }>(),
-    'Check Auth': props<{ url: string }>(),
+    'Check Auth': emptyProps(),
     Logout: emptyProps(),
     'Logout Complete': emptyProps(),
   },

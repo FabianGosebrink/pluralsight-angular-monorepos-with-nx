@@ -32,7 +32,6 @@ export class DoggosEffects {
         tap(({ id }) => {
           this.router.navigate(['/doggos'], {
             queryParams: { doggoId: id },
-            queryParamsHandling: 'merge',
           });
         })
       ),

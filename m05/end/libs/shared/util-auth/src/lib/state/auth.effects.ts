@@ -1,18 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { LoginResponse } from 'angular-auth-oidc-client';
-import { concatMap, from, map, switchMap, tap } from 'rxjs';
+import { concatMap, map, tap } from 'rxjs';
 import { AuthService } from '../auth.service';
 import { AuthActions } from './auth.actions';
 
 @Injectable()
 export class AuthEffects {
-  constructor(
-    private actions$: Actions,
-    private authService: AuthService,
-    private router: Router
-  ) {}
+  constructor(private actions$: Actions, private authService: AuthService) {}
 
   login$ = createEffect(
     () =>
@@ -26,8 +21,8 @@ export class AuthEffects {
   checkAuth$ = createEffect(() =>
     this.actions$.pipe(
       ofType(AuthActions.checkAuth),
-      concatMap(({ url }) =>
-        this.authService.checkAuth(url).pipe(
+      concatMap(() =>
+        this.authService.checkAuth().pipe(
           map((response: LoginResponse) =>
             AuthActions.loginComplete({
               isLoggedIn: response.isAuthenticated,
