@@ -16,8 +16,9 @@ import { AppComponent } from './app/app.component';
 
 const webCallbackUrl = `${window.location.origin}/callback`;
 
+console.log('Running with endpoint', environment.server);
+
 if (environment.production) {
-  console.log('Running with endpoint', environment.server);
   enableProdMode();
 }
 

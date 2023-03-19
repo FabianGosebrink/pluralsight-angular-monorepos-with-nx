@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { LoginResponse } from 'angular-auth-oidc-client';
-import { concatMap, from, map, tap } from 'rxjs';
+import { concatMap, from, map, switchMap, tap } from 'rxjs';
 import { AuthService } from '../auth.service';
 import { AuthActions } from './auth.actions';
 
@@ -42,7 +42,6 @@ export class AuthEffects {
   logout$ = createEffect(() =>
     this.actions$.pipe(
       ofType(AuthActions.logout),
-      concatMap(() => from(this.router.navigate(['/doggos']))),
       concatMap(() => this.authService.logout()),
       map(() => AuthActions.logoutComplete())
     )

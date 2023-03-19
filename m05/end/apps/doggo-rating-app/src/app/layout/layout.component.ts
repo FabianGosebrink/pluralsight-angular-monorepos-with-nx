@@ -23,9 +23,7 @@ import { Observable } from 'rxjs';
 })
 export class LayoutComponent implements OnInit {
   isLoggedIn$: Observable<boolean>;
-  myDoggoCount$: Observable<number>;
   userEmail$: Observable<string>;
-  realTimeConnection$: Observable<string>;
 
   backendUrl = environment.server;
 
@@ -33,9 +31,7 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoggedIn$ = this.store.pipe(select(selectIsLoggedIn));
-    //this.myDoggoCount$ = this.store.pipe(select(getMyDoggosCount));
     this.userEmail$ = this.store.pipe(select(selectCurrentUserIdentifier));
-    //this.realTimeConnection$ = this.store.pipe(select(getRealTimeConnection));
   }
 
   login() {

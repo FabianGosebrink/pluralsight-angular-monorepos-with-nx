@@ -13,6 +13,6 @@ export class CallbackComponent implements OnInit {
   ngOnInit(): void {
     // THIS IS JUST A PLACEHOLDER TO HAVE A REDIRECT FROM THE IDP
 
-    this.router.navigate(['']);
+    this.router.navigate(['/doggos']);
   }
 }

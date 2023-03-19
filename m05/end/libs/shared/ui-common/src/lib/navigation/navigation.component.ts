@@ -1,6 +1,10 @@
 import { NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { RouterLink, RouterModule } from '@angular/router';
+import {
+  IsActiveMatchOptions,
+  RouterLink,
+  RouterModule,
+} from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -11,9 +15,15 @@ import { RouterLink, RouterModule } from '@angular/router';
 })
 export class NavigationComponent implements OnInit {
   @Input() loggedIn = false;
-  @Input() doggoCount = 0;
   @Output() dologin = new EventEmitter();
   @Output() doLogout = new EventEmitter();
+
+  isActiveMatchOptions: IsActiveMatchOptions = {
+    queryParams: 'ignored',
+    matrixParams: 'exact',
+    paths: 'exact',
+    fragment: 'exact',
+  } as IsActiveMatchOptions;
 
   ngOnInit(): void {}
 

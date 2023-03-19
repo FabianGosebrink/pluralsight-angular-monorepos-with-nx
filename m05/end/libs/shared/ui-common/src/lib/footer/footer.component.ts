@@ -10,6 +10,5 @@ import { Component, Input } from '@angular/core';
 })
 export class FooterComponent {
   @Input() userEmail = '';
-  @Input() realTimeConnection = '';
   @Input() backendUrl = '';
 }

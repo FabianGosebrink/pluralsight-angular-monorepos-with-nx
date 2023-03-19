@@ -18,9 +18,7 @@ export const DOGGOS_ROUTES: Routes = [
     component: MainDoggoComponent,
     providers: [
       importProvidersFrom(
-        // register feature reducer
         StoreModule.forFeature(featureName, doggosReducer),
-        // run feature effects
         EffectsModule.forFeature([DoggosEffects])
       ),
     ],

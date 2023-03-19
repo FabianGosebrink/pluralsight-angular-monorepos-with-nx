@@ -30,8 +30,7 @@ export class DoggosEffects {
       this.actions$.pipe(
         ofType(DoggosActions.selectDoggo),
         tap(({ id }) => {
-          this.router.navigate([], {
-            relativeTo: this.activatedRoute,
+          this.router.navigate(['/doggos'], {
             queryParams: { doggoId: id },
             queryParamsHandling: 'merge',
           });

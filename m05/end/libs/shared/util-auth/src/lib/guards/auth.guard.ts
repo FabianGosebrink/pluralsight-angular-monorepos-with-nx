@@ -11,7 +11,7 @@ export const isAuthenticated = () => {
     take(1),
     map(({ isAuthenticated }) => {
       if (!isAuthenticated) {
-        router.navigate(['']);
+        router.navigate(['/doggos']);
 
         return false;
       }
