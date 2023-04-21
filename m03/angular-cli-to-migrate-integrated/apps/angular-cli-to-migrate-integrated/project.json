@@ -1,0 +1,89 @@
+{
+  "name": "angular-cli-to-migrate-integrated",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  },
+  "sourceRoot": "apps/angular-cli-to-migrate-integrated/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "outputPath": "dist/apps/angular-cli-to-migrate-integrated",
+        "index": "apps/angular-cli-to-migrate-integrated/src/index.html",
+        "main": "apps/angular-cli-to-migrate-integrated/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/angular-cli-to-migrate-integrated/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/angular-cli-to-migrate-integrated/src/favicon.ico",
+          "apps/angular-cli-to-migrate-integrated/src/assets"
+        ],
+        "styles": ["apps/angular-cli-to-migrate-integrated/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "angular-cli-to-migrate-integrated:build:production"
+        },
+        "development": {
+          "browserTarget": "angular-cli-to-migrate-integrated:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "angular-cli-to-migrate-integrated:build"
+      }
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "polyfills": ["zone.js", "zone.js/testing"],
+        "tsConfig": "apps/angular-cli-to-migrate-integrated/tsconfig.spec.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/angular-cli-to-migrate-integrated/src/favicon.ico",
+          "apps/angular-cli-to-migrate-integrated/src/assets"
+        ],
+        "styles": ["apps/angular-cli-to-migrate-integrated/src/styles.scss"],
+        "scripts": []
+      }
+    }
+  }
+}
