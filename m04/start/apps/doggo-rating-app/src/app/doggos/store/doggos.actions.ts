@@ -36,5 +36,7 @@ export const DoggosActions = createActionGroup({
     'Delete Doggo Realtime Finished': props<{ id: string }>(),
 
     'Set Real Time Connection': props<{ connection: string }>(),
+    'Start Real Time Connection': emptyProps(),
+    'Stop Real Time Connection': emptyProps(),
   },
 });

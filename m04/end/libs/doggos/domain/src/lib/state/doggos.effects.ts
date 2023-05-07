@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
-import { select, Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import {
   AuthActions,
   selectIsLoggedIn,
@@ -11,7 +11,7 @@ import {
   NotificationService,
   selectQueryParams,
 } from '@ps-doggo-rating/shared/util-common';
-import { catchError, concatMap, EMPTY, map, of, tap } from 'rxjs';
+import { EMPTY, catchError, concatMap, map, of, tap } from 'rxjs';
 import { DoggosService } from '../services/doggos.service';
 import { SignalRService } from '../services/signalr.service';
 import { UploadService } from '../services/upload.service';
@@ -246,7 +246,6 @@ export class DoggosEffects {
     private actions$: Actions,
     private store: Store,
     private router: Router,
-    private activatedRoute: ActivatedRoute,
     private doggosService: DoggosService,
     private uploadService: UploadService,
     private notificationService: NotificationService,

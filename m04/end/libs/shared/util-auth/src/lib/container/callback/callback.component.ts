@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
 
 @Component({
@@ -9,7 +10,7 @@ import { OidcSecurityService } from 'angular-auth-oidc-client';
   providers: [OidcSecurityService],
 })
 export class CallbackComponent implements OnInit {
-  constructor(private service: OidcSecurityService) {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     // THIS IS JUST A PLACEHOLDER TO HAVE A REDIRECT FROM THE IDP

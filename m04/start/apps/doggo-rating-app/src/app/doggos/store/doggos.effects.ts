@@ -1,12 +1,13 @@
-import { AuthActions } from './../../auth/store/auth.actions';
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
-import { select, Store } from '@ngrx/store';
-import { catchError, concatMap, EMPTY, map, of, switchMap, tap } from 'rxjs';
+import { Store, select } from '@ngrx/store';
+import { EMPTY, catchError, concatMap, map, of, tap } from 'rxjs';
 import { NotificationService } from '../../common/notifications/notification.service';
+import { SignalRService } from '../../common/real-time/signalr.service';
 import { selectQueryParams } from '../../router.selectors';
 import { DoggosService } from '../services/doggos.service';
+import { AuthActions } from './../../auth/store/auth.actions';
 import {
   selectIsLoggedIn,
   selectUserSubject,
@@ -27,10 +28,8 @@ export class DoggosEffects {
       this.actions$.pipe(
         ofType(DoggosActions.selectDoggo),
         tap(({ id }) => {
-          this.router.navigate([], {
-            relativeTo: this.activatedRoute,
+          this.router.navigate(['/doggos'], {
             queryParams: { doggoId: id },
-            queryParamsHandling: 'merge',
           });
         })
       ),
@@ -161,6 +160,41 @@ export class DoggosEffects {
     )
   );
 
+  setRealTimeConnection$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(DoggosActions.setRealTimeConnection),
+        tap(({ connection }) => {
+          this.notificationService.showSuccess(
+            `Realtime Connection ${connection}`
+          );
+        })
+      ),
+    { dispatch: false }
+  );
+
+  startRealTimeConnection$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(DoggosActions.startRealTimeConnection),
+        tap(() => {
+          return this.signalRService.start();
+        })
+      ),
+    { dispatch: false }
+  );
+
+  stopRealTimeConnection$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(DoggosActions.stopRealTimeConnection),
+        tap(() => {
+          return this.signalRService.stop();
+        })
+      ),
+    { dispatch: false }
+  );
+
   rateDoggoRealtimeFinished$ = createEffect(() =>
     this.actions$.pipe(
       ofType(DoggosActions.rateDoggoRealtimeFinished),
@@ -210,9 +244,9 @@ export class DoggosEffects {
     private actions$: Actions,
     private store: Store,
     private router: Router,
-    private activatedRoute: ActivatedRoute,
     private doggosService: DoggosService,
     private uploadService: UploadService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private signalRService: SignalRService
   ) {}
 }

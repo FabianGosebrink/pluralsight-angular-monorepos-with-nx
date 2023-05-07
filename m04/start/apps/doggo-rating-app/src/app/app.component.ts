@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AuthActions } from './auth/store/auth.actions';
-import { SignalRService } from './common/real-time/signalr.service';
 import { LayoutComponent } from './shell/layout/layout.component';
 
 @Component({
@@ -14,19 +13,13 @@ import { LayoutComponent } from './shell/layout/layout.component';
 export class AppComponent implements OnInit {
   title = 'ratemydoggo';
 
-  constructor(private store: Store, private signalRService: SignalRService) {}
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
-    this.checkAuth(null);
-
-    this.signalRService.start();
+    this.checkAuth();
   }
 
-  private checkAuth(url: string) {
-    this.store.dispatch(
-      AuthActions.checkAuth({
-        url,
-      })
-    );
+  private checkAuth() {
+    this.store.dispatch(AuthActions.checkAuth());
   }
 }

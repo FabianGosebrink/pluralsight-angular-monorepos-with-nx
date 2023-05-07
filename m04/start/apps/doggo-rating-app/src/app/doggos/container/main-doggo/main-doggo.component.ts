@@ -1,6 +1,6 @@
 import { AsyncPipe, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { select, Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Doggo } from '../../models/doggo';
 import { DoggoListComponent } from '../../presentational/doggo-list/doggo-list.component';
@@ -32,6 +32,7 @@ export class MainDoggoComponent implements OnInit {
     this.loading$ = this.store.pipe(select(getLoading));
 
     this.store.dispatch(DoggosActions.loadDoggos());
+    this.store.dispatch(DoggosActions.startRealTimeConnection());
   }
 
   rateDoggo(rating: number) {

@@ -25,10 +25,7 @@ export const getAllIdsOfMyDoggos = createSelector(
   }
 );
 
-export const getMyDoggosCount = createSelector(
-  getMyDoggos,
-  (myDoggos: Doggo[]) => myDoggos?.length || 0
-);
+
 
 export const getLoading = createSelector(
   getDoggoState,

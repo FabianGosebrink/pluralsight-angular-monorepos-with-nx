@@ -4,15 +4,10 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
-import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import {
-  AuthInterceptor,
-  AuthModule,
-  StsConfigLoader,
-  StsConfigStaticLoader,
-} from 'angular-auth-oidc-client';
+import { AuthInterceptor, AuthModule } from 'angular-auth-oidc-client';
 import { ToastrModule } from 'ngx-toastr';
 import { APP_ROUTES } from './app/app-routes';
 import { AppComponent } from './app/app.component';
@@ -22,8 +17,9 @@ import { environment } from './environments/environment';
 
 const webCallbackUrl = `${window.location.origin}/callback`;
 
+console.log('Running with endpoint', environment.server);
+
 if (environment.production) {
-  console.log('Running with endpoint', environment.server);
   enableProdMode();
 }
 
@@ -52,7 +48,7 @@ bootstrapApplication(AppComponent, {
           responseType: 'code',
           silentRenew: true,
           useRefreshToken: true,
-          postLogoutRedirectUri: webCallbackUrl,
+          postLogoutRedirectUri: window.location.origin,
           customParamsAuthRequest: {
             audience: environment.server,
           },
