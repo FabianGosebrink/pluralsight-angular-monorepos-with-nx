@@ -1,0 +1,50 @@
+{
+  "name": "publishable-test",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/publishable-test/src",
+  "prefix": "ps-doggo-rating",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/publishable-test/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/publishable-test/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/publishable-test/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/publishable-test/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/publishable-test/**/*.ts",
+          "libs/publishable-test/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
