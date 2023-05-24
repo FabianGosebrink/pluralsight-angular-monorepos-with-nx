@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { CallbackComponent } from '@ps-doggo-rating/shared/util-auth';
-import { BuildableTestModule } from '@ps-doggo-rating/buildable-test';
+
 export const APP_ROUTES: Routes = [
   {
     path: 'doggos',
