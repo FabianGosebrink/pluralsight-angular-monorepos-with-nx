@@ -13,10 +13,6 @@
             "allow": [],
             "depConstraints": [
               {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
-              },
-              {
                 "sourceTag": "scope:doggo-rating-app",
                 "onlyDependOnLibsWithTags": [
                   "scope:doggos",
