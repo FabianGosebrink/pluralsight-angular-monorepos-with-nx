@@ -101,5 +101,5 @@
       }
     }
   },
-  "tags": []
+  "tags": ["type:app", "scope:doggo-rating-app"]
 }
